@@ -1,0 +1,6 @@
+# ignore real config file
+config/config.php
+
+# ignore raw database and import tool
+install/import.php
+install/SK-Katalog.csv

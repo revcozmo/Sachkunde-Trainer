@@ -1,0 +1,17 @@
+body {
+	background-color:#333;
+}
+.page-header {
+	color:#fff;
+}
+.footer {
+	color:#777;
+	border-top:1px solid #000;
+	background-image: linear-gradient(to top,#3c3c3c 0,#222 100%);
+}
+.blog-header, .blog-post, .blog-sidebar {
+	color:#fff;
+}
+.blog-description {
+	color:#777;
+}
