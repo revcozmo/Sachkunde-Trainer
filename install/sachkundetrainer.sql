@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `question` (
   `question` text NOT NULL,
   `category` varchar(255) NOT NULL,
   `count_wrong` int(11) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=859 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
