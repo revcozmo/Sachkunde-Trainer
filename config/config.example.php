@@ -5,6 +5,11 @@
 	@header( 'Content-Type:text/html;charset=UTF-8' );
 
 	/**
+	 * Version
+	 */
+	define( 'PRJ_VERSION', 'v0.93' );
+
+	/**
 	 * Define paths [no need to change!]
 	 **************************************************/
 	define( 'PRJ_CONF', realpath( dirname( __FILE__ ) ) );

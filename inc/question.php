@@ -1,4 +1,5 @@
 <div class="container">
+	<div class="row">
 <?php
 	if( !empty( $_REQUEST[ 'question_id' ] ) )
 		echo '<form name="questionform" method="post" action="/">';
@@ -6,7 +7,7 @@
 		echo '<form name="questionform" method="post" action="/#answers">';
 ?>	
 		<input type="hidden" name="do" value="question"/>
-		<div class="container col-md-8 center-block">
+		<div class="container col-md-8 col-md-offset-2">
 <?php
 	// Get question
 	$category = $db -> escape( $_REQUEST[ 'category' ] );
@@ -14,12 +15,24 @@
 	if( !empty( $_REQUEST[ 'question_id' ] ) ) {
 		$question = $db -> fetch_object( $db -> query( "SELECT * FROM question WHERE question_id='" . intval( $_REQUEST[ 'question_id' ] ) . "';" ) );
 		$correct = true;
+		// Store question in exclude array
+		if( !empty( $_SESSION[ 'use_exclude_questions' ] ) ) {
+			$_SESSION[ 'exclude_questions' ][] = intval( $_REQUEST[ 'question_id' ] );
+		}
 	}
 	else {
-		if( !empty( $_REQUEST[ 'load_question_id' ] ) )
+		if( !empty( $_REQUEST[ 'load_question_id' ] ) ) {
 			$question = $db -> fetch_object( $db -> query( "SELECT * FROM question WHERE 1 AND question_id='" . intval( $_REQUEST[ 'load_question_id' ] ) . "';" ) );
-		else
-			$question = $db -> fetch_object( $db -> query( "SELECT * FROM question WHERE 1 $categorySql ORDER BY RAND()" ) );
+		}
+		else {
+			$excludeSql = '';
+			if( !empty( $_SESSION[ 'use_exclude_questions' ] ) ) {
+				if( is_array( $_SESSION[ 'exclude_questions' ] ) && count( $_SESSION[ 'exclude_questions' ] ) ) {
+					$excludeSql = " AND question_id NOT IN ( " . implode( ',', $_SESSION[ 'exclude_questions' ] ) . " ) ";
+				}
+			}
+			$question = $db -> fetch_object( $db -> query( "SELECT * FROM question WHERE 1 $excludeSql $categorySql ORDER BY RAND()" ) );
+		}
 	}
 	echo '<div class="page-header"><h2><span class="glyphicon glyphicon-chevron-right"></span> ' . $question -> category . '</h2></div>';
 
@@ -109,15 +122,16 @@
 		</div>
 	</form>
 	<?php if( $_SESSION['use_fb'] ) { ?>
-		<div class="container col-md-8 center-block">
+		<div class="container col-md-8 col-md-offset-2">
 			<div class="panel panel-primary">
 				<div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Tausche Dich über diese Frage mit anderen Nutzern aus</h3></div>
 				<div class="panel-body">
 					<div class="row">
-						<div class="fb-comments" data-href="<?php echo PRJ_URL . '/?do=question&load_question_id=' . $question -> question_id; ?>" data-num-posts="5" data-width="100%" data-mobile="auto-detect"></div>
+						<div class="fb-comments" style="width:100%" data-href="<?php echo PRJ_URL . '/?do=question&load_question_id=' . $question -> question_id; ?>" data-num-posts="5" data-width="100%" data-mobile="auto-detect"></div>
 					</div>
 				</div>
 			</div>
 		</div>
 	<?php } ?>
+	</div>
 </div>

@@ -44,9 +44,9 @@
 	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 	
 	<!-- CSS Hacks -->
-	<link rel="stylesheet" href="/css/hacks.css?v=0.9beta">
+	<link rel="stylesheet" href="/css/hacks.css?v=0.91beta">
 	<?php if( $_SESSION['use_theme_dark'] ) { ?>
-		<link rel="stylesheet" href="/css/theme-dark.css?v=0.9beta">
+		<link rel="stylesheet" href="/css/theme-dark.css?v=0.91beta">
 	<?php } ?>
 	
 	<!-- Sharing Image -->
@@ -103,6 +103,9 @@
 		}
 		if( $do == 'hard' ) {
 			include( PRJ_INC . '/hard.php' );
+		}
+		if( $do == 'books' ) {
+			include( PRJ_INC . '/books.php' );
 		}
 	?>
 	<?php

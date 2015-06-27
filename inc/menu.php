@@ -36,16 +36,22 @@
 					<ul class="dropdown-menu" role="menu">
 						<li <?php echo $_REQUEST['do']=='stats'?'class="active"':''; ?>><a href="?do=stats">Deine Statistiken</a></li>
 						<li <?php echo $_REQUEST['do']=='hard'?'class="active"':''; ?>><a href="?do=hard">Schwierige Fragen</a></li>
+						<li <?php echo $_REQUEST['do']=='books'?'class="active"':''; ?>><a href="?do=books">Hilfen und Bücher</a></li>
 						<li role="presentation" class="divider"></li>
 						<?php if( $_SESSION['use_fb'] ) { ?>
-							<li role="presentation"><a href="#" onclick="$.ajax('ajax/toggle_fb.php').done(function() { location.reload(); });">Facebook deaktivieren</a></li>
+							<li role="presentation"><a href="#" onclick="$.ajax('ajax/toggle_fb.php').done(function() { location.reload(); });"><input type="checkbox" checked="checked"/> Facebook</a></li>
 						<?php } else { ?>
-							<li role="presentation"><a href="#" onclick="$.ajax('ajax/toggle_fb.php').done(function() { location.reload(); });">Facebook aktivieren</a></li>
+							<li role="presentation"><a href="#" onclick="$.ajax('ajax/toggle_fb.php').done(function() { location.reload(); });"><input type="checkbox"/> Facebook</a></li>
 						<?php } ?>
 						<?php if( $_SESSION['use_theme_dark'] ) { ?>
-							<li role="presentation"><a href="#" onclick="$.ajax('ajax/toggle_theme.php').done(function() { location.reload(); });">Theme: Dunkel</a></li>
+							<li role="presentation"><a href="#" onclick="$.ajax('ajax/toggle_theme.php').done(function() { location.reload(); });"><input type="checkbox" checked="checked"/> Dunkele Anzeige</a></li>
 						<?php } else { ?>
-							<li role="presentation"><a href="#" onclick="$.ajax('ajax/toggle_theme.php').done(function() { location.reload(); });">Theme: Hell</a></li>
+							<li role="presentation"><a href="#" onclick="$.ajax('ajax/toggle_theme.php').done(function() { location.reload(); });"><input type="checkbox"/> Dunkele Anzeige</a></li>
+						<?php } ?>
+						<?php if( $_SESSION['use_exclude_questions'] ) { ?>
+							<li role="presentation"><a href="#" onclick="$.ajax('ajax/toggle_exclude.php').done(function() { location.reload(); });"><input type="checkbox" checked="checked"/> Doppelte Fragen unterdrücken</a></li>
+						<?php } else { ?>
+							<li role="presentation"><a href="#" onclick="$.ajax('ajax/toggle_exclude.php').done(function() { location.reload(); });"><input type="checkbox"/> Doppelte Fragen unterdrücken</a></li>
 						<?php } ?>
 					</ul>
 				</li>
@@ -59,7 +65,7 @@
 				</div>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-				<li <?php echo $_REQUEST['do']=='changelog'?'class="active"':''; ?>><a href="?do=changelog">v0.9beta</a></li>
+				<li <?php echo $_REQUEST['do']=='changelog'?'class="active"':''; ?>><a href="?do=changelog"><?php echo PRJ_VERSION; ?></a></li>
 			</ul>
 		</div>
 	</div>

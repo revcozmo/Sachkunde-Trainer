@@ -1,5 +1,5 @@
 <?php
-	$q = preg_replace( '#[^a-z0-9äöüß ]#iu', '', $_REQUEST[ 'q' ] );
+	$q = preg_replace( '#[^a-z0-9äöüß\.\- ]#iu', '', $_REQUEST[ 'q' ] );
 ?>
 <div class="container">
 	<div class="page-header"><h2><span class="glyphicon glyphicon-search"></span> Suchergebnisse für "<?php echo $q; ?>"</h2></div>
@@ -8,7 +8,8 @@
 	if( $db -> rowsfound( $result ) ) {
 		echo '<div class="list-group">';
 		while( $question = $db -> fetch_object( $result ) ) {
-			echo '<a href="?do=question&amp;load_question_id=' . $question -> question_id . '" class="list-group-item">' . str_ireplace( $q, '<strong>' . $q . '</strong>', $question -> question ) . '</a>';
+			$question -> question = preg_replace( '#(' . $q . ')#i', '<strong>$1</strong>', $question -> question );
+			echo '<a href="?do=question&amp;load_question_id=' . $question -> question_id . '" class="list-group-item">' . $question -> question . '</a>';
 		}
 		echo '</div>';
 	}
