@@ -3,7 +3,9 @@
 		<div class="container col-md-12 center-block">
 			<div class="well introduction">
 				<h2><span class="glyphicon glyphicon-ok-circle"></span> Changelog</h2>
-				<p><strong>In Planung:</strong> Prüfungssimulator, Benutzeraccounts und Ranglisten, Veröffentlichung des Quellcodes, Android App, Rechtsgrundlagen verlinken, Schwierige Fragen kennzeichnen, Zeitbegrenzung beim Beantworten, Fragen mit embed code einbetten, ...</p>
+				<p><strong>In Planung:</strong> Prüfungssimulator, Benutzeraccounts und Ranglisten, Android App, Rechtsgrundlagen verlinken, Schwierige Fragen kennzeichnen, Zeitbegrenzung beim Beantworten, Fragen mit embed code einbetten, ...</p>
+
+				<p><a href="https://github.com/motorradblogger/Sachkunde-Trainer">Aktuellen Quellcode herunterladen</a></p>
 
 				<h3>v0.93 <small>ab 27.06.2015</small></h3>
 				<ul class="list-group">
