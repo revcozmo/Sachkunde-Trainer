@@ -16,6 +16,7 @@
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Neue Frage <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
 						<li role="presentation" <?php echo $_REQUEST['do']=='question'?'class="active"':''; ?>><a href="?do=question">Zufällige Frage</a></li>
+						<li role="presentation" <?php echo $_REQUEST['do']=='textquestion'?'class="active"':''; ?>><a href="?do=textquestion">Freie Fragen lernen</a></li>
 						<li role="presentation" class="divider"></li>
 						<?php
 							$result = $db -> query( "SELECT category FROM question GROUP BY category ORDER BY category;" );

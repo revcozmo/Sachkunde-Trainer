@@ -7,6 +7,11 @@
 
 				<p><a href="https://github.com/motorradblogger/Sachkunde-Trainer">Aktuellen Quellcode herunterladen</a></p>
 
+				<h3>v0.94 <small>ab 04.07.2015</small></h3>
+				<ul class="list-group">
+					<li class="list-group-item">Freie Textfragen integriert</li>
+				</ul>
+
 				<h3>v0.93 <small>ab 27.06.2015</small></h3>
 				<ul class="list-group">
 					<li class="list-group-item">Option zum unterdrücken von doppelten Fragen hinzugefügt</li>

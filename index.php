@@ -83,6 +83,9 @@
 		if( $do == 'question' ) {
 			include( PRJ_INC . '/question.php' );
 		}
+		if( $do == 'textquestion' ) {
+			include( PRJ_INC . '/textquestion.php' );
+		}
 		if( $do == 'about' ) {
 			include( PRJ_INC . '/about.php' );
 		}

@@ -4,3 +4,5 @@ config/config.php
 # ignore raw database and import tool
 install/import.php
 install/SK-Katalog.csv
+install/importText.php
+install/Textfragen.txt
